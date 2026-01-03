@@ -28,7 +28,9 @@ COPY requirements.txt /opt/program/requirements.txt
 # -------------------------------------------------
 # Install dependencies
 # -------------------------------------------------
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir --default-timeout=600 -r requirements.txt
+
 
 # -------------------------------------------------
 # Expose SageMaker default port
